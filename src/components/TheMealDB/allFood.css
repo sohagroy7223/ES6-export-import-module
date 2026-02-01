@@ -7,3 +7,7 @@
   background-size: cover;
   border-radius: 10px;
 }
+
+.clickBtn {
+  background: gray;
+}

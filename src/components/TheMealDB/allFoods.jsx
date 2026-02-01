@@ -7,6 +7,7 @@ const AllFoods = ({ allFoods }) => {
   return (
     <div>
       <h3>all TheMealDB foods is here: {foods.meals.length}</h3>
+      <h3 className="div">add card</h3>
       <div className="foods">
         {foods.meals.map((food) => (
           <Food food={food}></Food>

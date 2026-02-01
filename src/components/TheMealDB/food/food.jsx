@@ -13,6 +13,7 @@ const Food = ({ food }) => {
       <img className="img" src={food.strMealThumb} alt="" />
       <h4>strArea: {food.strArea}</h4>
       <button onClick={handelBuy}>{buy ? "cancel" : "buy"}</button>
+      <button>add to card</button>
     </div>
   );
 };

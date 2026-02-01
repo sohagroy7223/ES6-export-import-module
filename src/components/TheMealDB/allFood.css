@@ -6,3 +6,9 @@
 .clickBtn {
   background: gray;
 }
+.div {
+  border: 2px solid gold;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 20px;
+}

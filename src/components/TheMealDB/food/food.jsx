@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./food.css";
-const Food = ({ food, handelOrder }) => {
+const Food = ({ food, handelOrder, handleAddCard }) => {
   const [buy, setBuy] = useState(false);
   const handelBuy = () => {
     setBuy(!buy);
+    handelOrder();
   };
 
   //   console.log(food);
@@ -13,7 +14,7 @@ const Food = ({ food, handelOrder }) => {
       <img className="img" src={food.strMealThumb} alt="" />
       <h4>strArea: {food.strArea}</h4>
       <button onClick={handelBuy}>{buy ? "cancel" : "buy"}</button>
-      <button onClick={handelOrder}>add card</button>
+      <button onClick={() => handleAddCard(food)}>add to card</button>
     </div>
   );
 };

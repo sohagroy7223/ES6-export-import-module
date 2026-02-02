@@ -27,7 +27,7 @@ const AllFoods = ({ allFoods }) => {
       <h3>buy food: {ordered} </h3>
       <div className="display">
         {addCard.map((card) => (
-          <div className="cardd ">
+          <div className="Card ">
             <h5>name: {card.strMeal}</h5>
             <img className="w" card={card} src={card.strMealThumb}></img>
             <p>strCategory: {card.strCategory}</p>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./food.css";
-const Food = ({ food, card }) => {
+const Food = ({ food, handelOrder }) => {
   const [buy, setBuy] = useState(false);
   const handelBuy = () => {
     setBuy(!buy);
@@ -13,7 +13,7 @@ const Food = ({ food, card }) => {
       <img className="img" src={food.strMealThumb} alt="" />
       <h4>strArea: {food.strArea}</h4>
       <button onClick={handelBuy}>{buy ? "cancel" : "buy"}</button>
-      <button onClick={card}>add to card</button>
+      <button onClick={handelOrder}>add card</button>
     </div>
   );
 };

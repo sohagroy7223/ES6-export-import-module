@@ -15,8 +15,9 @@ const saveCardToLS = (card) => {
 
 const addCardToLS = (id) => {
   const card = localStorageGetItem();
-  card.push(id);
-  saveCardToLS(card);
+  //   card.push(id);
+  const newCard = [...card, id];
+  saveCardToLS(newCard);
 };
 
 export { localStorageGetItem as getStoreCard, addCardToLS as addStoreCard };

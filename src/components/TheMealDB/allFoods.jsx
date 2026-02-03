@@ -24,11 +24,13 @@ const AllFoods = ({ allFoods }) => {
       const cardFoods = foods.meals.find((food) => (food.idMeal = id));
       console.log(cardFoods);
       if (cardFoods) {
-        setAddCard([...addCard, cardFoods]);
+        storeCard.push(cardFoods);
+        setAddCard(...addCard, storeCard);
       }
+      // console.log("stor card", setAddCard(storeCard));
     }
     // console.log(stodecard);
-  }, [foods.meals]);
+  }, [foods]);
 
   const [ordered, setOrdered] = useState(0);
 

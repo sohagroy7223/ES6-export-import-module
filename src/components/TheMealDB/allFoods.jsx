@@ -1,10 +1,34 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import "./allFood.css";
 import Food from "./food/food";
-import { addStoreCard } from "../../utils/localStorage/localStorage";
+import {
+  addStoreCard,
+  getStoreCard,
+} from "../../utils/localStorage/localStorage";
 
 const AllFoods = ({ allFoods }) => {
   const foods = use(allFoods);
+  const [addCard, setAddCard] = useState([]);
+
+  useEffect(() => {
+    const storeCardId = getStoreCard();
+    // console.log(storeCardId);
+
+    const storeCard = [];
+
+    for (const id of storeCardId) {
+      // console.log(id);
+      // console.log(id);
+      // console.log(foods);
+
+      const cardFoods = foods.meals.find((food) => (food.idMeal = id));
+      console.log(cardFoods);
+      if (cardFoods) {
+        setAddCard([...addCard, cardFoods]);
+      }
+    }
+    // console.log(stodecard);
+  }, [foods.meals]);
 
   const [ordered, setOrdered] = useState(0);
 
@@ -12,8 +36,6 @@ const AllFoods = ({ allFoods }) => {
     const allOrdered = ordered + 1;
     setOrdered(allOrdered);
   };
-
-  const [addCard, setAddCard] = useState([]);
 
   const handleAddCard = (food) => {
     console.log(" add card", food);
@@ -29,7 +51,7 @@ const AllFoods = ({ allFoods }) => {
       <h3>buy food: {ordered} </h3>
       <div className="display">
         {addCard.map((card) => (
-          <div className="Card ">
+          <div className="Card" key={card.idMeal}>
             <h5>name: {card.strMeal}</h5>
             <img className="w" card={card} src={card.strMealThumb}></img>
             <p>strCategory: {card.strCategory}</p>

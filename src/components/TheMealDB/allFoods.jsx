@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import "./allFood.css";
 import Food from "./food/food";
+import { addStoreCard } from "../../utils/localStorage/localStorage";
 
 const AllFoods = ({ allFoods }) => {
   const foods = use(allFoods);
@@ -18,6 +19,7 @@ const AllFoods = ({ allFoods }) => {
     console.log(" add card", food);
     const AllCard = [...addCard, food];
     setAddCard(AllCard);
+    addStoreCard(food.idMeal);
   };
 
   // console.log(foods);

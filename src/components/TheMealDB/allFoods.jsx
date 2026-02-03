@@ -8,6 +8,7 @@ import {
 
 const AllFoods = ({ allFoods }) => {
   const foods = use(allFoods);
+  console.log(foods);
   const [addCard, setAddCard] = useState([]);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const AllFoods = ({ allFoods }) => {
       // console.log("stor card", setAddCard(storeCard));
     }
     // console.log(stodecard);
-  }, [foods]);
+  }, [foods.idMeal]);
 
   const [ordered, setOrdered] = useState(0);
 
@@ -46,7 +47,7 @@ const AllFoods = ({ allFoods }) => {
     addStoreCard(food.idMeal);
   };
 
-  // console.log(foods);
+  console.log(addCard);
   return (
     <div>
       <h3>all TheMealDB foods is here: {foods.meals.length}</h3>
@@ -54,9 +55,7 @@ const AllFoods = ({ allFoods }) => {
       <div className="display">
         {addCard.map((card) => (
           <div className="Card" key={card.idMeal}>
-            <h5>name: {card.strMeal}</h5>
-            <img className="w" card={card} src={card.strMealThumb}></img>
-            <p>strCategory: {card.strCategory}</p>
+            <h5>name: {card.idMeal}</h5>
           </div>
         ))}
       </div>

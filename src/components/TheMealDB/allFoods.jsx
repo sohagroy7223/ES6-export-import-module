@@ -8,7 +8,7 @@ import {
 
 const AllFoods = ({ allFoods }) => {
   const foods = use(allFoods);
-  console.log(foods);
+  // console.log(foods);
   const [addCard, setAddCard] = useState([]);
 
   useEffect(() => {
@@ -19,19 +19,18 @@ const AllFoods = ({ allFoods }) => {
 
     for (const id of storeCardId) {
       // console.log(id);
-      // console.log(id);
-      // console.log(foods);
+      // console.log(foods.meals);
 
-      const cardFoods = foods.meals.find((food) => (food.idMeal = id));
-      console.log(cardFoods);
+      const cardFoods = foods.meals.find((food) => food.idMeal === id);
       if (cardFoods) {
         storeCard.push(cardFoods);
+        // console.log(storeCard);
         setAddCard(...addCard, storeCard);
       }
       // console.log("stor card", setAddCard(storeCard));
     }
-    // console.log(stodecard);
-  }, [foods.idMeal]);
+    // console.log(storeCard);
+  }, [foods]);
 
   const [ordered, setOrdered] = useState(0);
 
@@ -41,7 +40,7 @@ const AllFoods = ({ allFoods }) => {
   };
 
   const handleAddCard = (food) => {
-    console.log(" add card", food);
+    // console.log(" add card", food);
     const AllCard = [...addCard, food];
     setAddCard(AllCard);
     addStoreCard(food.idMeal);
@@ -55,7 +54,8 @@ const AllFoods = ({ allFoods }) => {
       <div className="display">
         {addCard.map((card) => (
           <div className="Card" key={card.idMeal}>
-            <h5>name: {card.idMeal}</h5>
+            <h5>id: {card.idMeal}</h5>
+            <img className="w" src={card.strMealThumb} alt="" />
           </div>
         ))}
       </div>

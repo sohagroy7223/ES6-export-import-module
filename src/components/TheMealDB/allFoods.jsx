@@ -46,7 +46,7 @@ const AllFoods = ({ allFoods }) => {
     addStoreCard(food.idMeal);
   };
 
-  // console.log(addCard);
+  console.log(addCard);
   return (
     <div>
       <h3>all TheMealDB foods is here: {foods.meals.length}</h3>
@@ -57,7 +57,7 @@ const AllFoods = ({ allFoods }) => {
             <h3>name: {card.strMeal}</h3>
             <img className="w" src={card.strMealThumb} alt="" />
             <h5>id: {card.idMeal}</h5>
-            <button>remove card</button>
+            <button>remove</button>
           </div>
         ))}
       </div>
